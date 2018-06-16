@@ -1,17 +1,25 @@
 .logo {
-    width: 200px;
+    width: 100%;
 }
 .silhouette-city-view {
-    width: 800px;
-    padding-top: 50px;
+    width: 100%;
+    padding-top: 2rem;
 }
 .navbar {
     border-bottom: 1px solid #192440;
-    padding: 0;
+    padding: 0 3rem;
 }
 .navbar-brand {
-    margin-top: 35px
+    margin-top: 90px
 }
 .btn-log {
-    margin-top: 35px;
+    margin-top: 115px;
+    margin-left: 20px;
+    width: 100%;
+    background: #192440;
+    border-radius: 21px;
+    color: #9CFFFC;
+    font-size: 21px;
+    font-family: 'Myriad Pro', sans-serif;
+    font-weight: 500;
 }

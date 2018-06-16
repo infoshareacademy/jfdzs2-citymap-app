@@ -1,0 +1,25 @@
+.app-menu {
+    background: #192440;
+    opacity: 0.9;
+    padding: 0;
+}
+.app-menu ul {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+.app-menu li{
+    border-top: 1px solid #9CFFFC;
+    margin: auto;
+    padding: 0.8rem;
+    color: #9CFFFC;
+    font-size: 21px;
+    font-family: 'Myriad Pro', sans-serif;
+    font-weight: 500;
+}
+.app-menu li:hover {
+    color: white;
+    background: #192440;
+    opacity: 0.8;
+}

@@ -1,0 +1,10 @@
+.panel-footer {
+    font-size: 21px;
+    border-top: 1.5px solid #192440;
+    border-bottom: 1.5px solid #192440;
+    color: #192440;
+    padding: 1rem;
+}
+.panel-footer p {
+    margin: 1rem;
+}
