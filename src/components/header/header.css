@@ -1,0 +1,17 @@
+.logo {
+    width: 200px;
+}
+.silhouette-city-view {
+    width: 800px;
+    padding-top: 50px;
+}
+.navbar {
+    border-bottom: 1px solid #192440;
+    padding: 0;
+}
+.navbar-brand {
+    margin-top: 35px
+}
+.btn-log {
+    margin-top: 35px;
+}
