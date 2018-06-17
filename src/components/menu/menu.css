@@ -1,7 +1,8 @@
 .app-menu {
     background: #192440;
-    opacity: 0.9;
+    opacity: 0.7;
     padding: 0;
+    height: 100vh;
 }
 .app-menu ul {
     width: 100%;
@@ -21,5 +22,10 @@
 .app-menu li:hover {
     color: white;
     background: #192440;
-    opacity: 0.8;
+}
+.brand {
+
+}
+.logo {
+    width: 100%;
 }

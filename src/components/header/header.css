@@ -1,16 +1,10 @@
-.logo {
-    width: 100%;
-}
 .silhouette-city-view {
     width: 100%;
     padding-top: 2rem;
 }
 .navbar {
     border-bottom: 1px solid #192440;
-    padding: 0 3rem;
-}
-.navbar-brand {
-    margin-top: 90px
+    padding: 0;
 }
 .btn-log {
     margin-top: 115px;
