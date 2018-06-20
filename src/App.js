@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import { GoogleApiWrapper } from 'google-maps-react' 
+import MapContainer from './components/MapContainer'
 
 import Header from "./components/header/header"
 import Section from "./components/section/section"
@@ -17,7 +19,7 @@ class App extends Component {
                   </div>
                   <div className="col-md-10">
                       <Header />
-                      <Section />
+                      <MapContainer google={this.props.google} />
                       <Footer />
                   </div>
               </div>
@@ -26,4 +28,7 @@ class App extends Component {
     );
   }
 }
-export default App;
+export default GoogleApiWrapper({
+    apiKey: 'AIzaSyAU6LPIRtQj-VhbJM3X8C6BEGyXTTlffHE',
+  })(App)
+
