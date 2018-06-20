@@ -14,11 +14,12 @@ class App extends Component {
       <div className="App">
           <div className="container-fluid">
               <div className="row">
+              <Header />
                   <div className="col-md-2">
                       <Menu />
                   </div>
                   <div className="col-md-10">
-                      <Header />
+                      
                       <MapContainer google={this.props.google} />
                       <Footer />
                   </div>
