@@ -11,13 +11,13 @@
     list-style-type: none;
 }
 .app-menu li{
-    border-top: 1px solid #9CFFFC;
+    border-bottom: 1px solid #9CFFFC;
     margin: auto;
-    padding: 0.8rem;
+    padding: 15px 2px;
     color: #9CFFFC;
-    font-size: 21px;
+    font-size: 18px;
     font-family: 'Myriad Pro', sans-serif;
-    font-weight: 500;
+    
 }
 .app-menu li:hover {
     color: white;
@@ -27,5 +27,6 @@
 
 }
 .logo {
-    width: 100%;
+    width: 80%;
+    height:100px;
 }

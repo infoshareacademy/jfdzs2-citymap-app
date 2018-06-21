@@ -4,9 +4,24 @@ import { GoogleApiWrapper } from 'google-maps-react'
 import MapContainer from './components/MapContainer'
 
 import Header from "./components/header/header"
-import Section from "./components/section/section"
+// import Section from "./components/section/section"
 import Footer from "./components/footer/footer"
 import Menu from "./components/menu/menu"
+import {
+    Collapse,
+    Navbar,
+    NavbarToggler,
+    NavbarBrand,
+    Nav,
+    NavItem,
+    NavLink,
+    Container,
+    Row,
+    Col,
+    Jumbotron,
+    Button
+} from 'reactstrap';
+
 
 class App extends Component {
   render() {
@@ -14,13 +29,17 @@ class App extends Component {
       <div className="App">
           <div className="container-fluid">
               <div className="row">
-              <Header />
+              <div >
+                 <Header />
+                 </div>
                   <div className="col-md-2">
                       <Menu />
                   </div>
-                  <div className="col-md-10">
+                  <div className="col-md-10 m-0 p-0">
                       
                       <MapContainer google={this.props.google} />
+                      </div>
+                      <div className="col-xl-12">
                       <Footer />
                   </div>
               </div>
