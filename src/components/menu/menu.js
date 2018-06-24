@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import CityMapLogo from '../../images/City_map_logo.svg'
@@ -9,7 +8,6 @@ class Menu extends Component {
     render () {
         return (
             <div className="app-menu">
-              
                 <ul>
                     <Link to="/signIn"><li><FontAwesome.FaKey/> Zaloguj</li></Link>
                     <Link to="/home"><li><FontAwesome.FaHome/> Home</li></Link>
@@ -19,13 +17,11 @@ class Menu extends Component {
                     <Link to="/favorites"><li><FontAwesome.FaStreetView/> Ulubione</li></Link>
                     <Link to="/category"><li> <FontAwesome.FaBars/> Kategorie</li></Link>
                     <Link to="/diagrams"><li><FontAwesome.FaBarChart/> Wykresy</li></Link>
-                   
                 </ul>
                 <ul>
-                <Link to="/app">PL </Link>
-                <Link to="/english">EN </Link>
+                    <Link to="/app">PL </Link>
+                    <Link to="/english">EN </Link>
                 </ul>
-            
             </div>
         );
     }

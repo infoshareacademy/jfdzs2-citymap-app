@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
+import {GoogleApiWrapper} from 'google-maps-react'
 
-export default class MapContainer extends Component {
+class MapContainer extends Component {
 
   componentDidUpdate() {
     this.loadMap(); 
@@ -43,3 +44,7 @@ export default class MapContainer extends Component {
     )
   }
 }
+
+export default GoogleApiWrapper({
+    apiKey: 'AIzaSyAU6LPIRtQj-VhbJM3X8C6BEGyXTTlffHE',
+})(MapContainer)
