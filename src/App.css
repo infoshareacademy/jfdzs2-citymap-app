@@ -1,65 +1,7 @@
 .App {
-  text-align: center;
   padding: 0;
   margin: 0;
 }
 body {
   max-height: 100vh;
-}
-
-.search-wrapper {
-  position: absolute;
-  top: 100px;
-  left: 20px;
-  width: 250px;
-}
-.search-wrapper label {
-    font-size: 18px;
-    color: #192440;
-    font-weight: bold;
-}
-.search-wrapper .form-control {
-    border: 1px solid #192440;
-    border-radius: 0;
-    text-align: center;
-}
-.search-wrapper h4 {
-    font-size: 18px;
-    color: #192440;
-    font-weight: bold;
-    margin-top: 10px;
-}
-.search-wrapper ul {
-  list-style: none;
-  margin: 0;
-    padding: 0;
-}
-.search-wrapper li {
-    background: rgba(255,255,255,.7);
-  display: inline-block;
-  margin: 5px 0;
-  width: 250px;
-  height: 40px;
-  padding-top: 7px;
-  float: left;
-    border: 1px solid #192440;
-    color: #495057;
-}
-.search-wrapper li:hover{
-  background-color: rgba(25, 36, 64,.95);
-    color: #fff;
-}
-.btn-log {
-    width: 100%;
-    background: #192440;
-    color: white;
-    font-size: 18px;
-    font-weight: lighter;
-    margin: 5px 0;
-    border-radius: 0;
-}
-.btn-log:hover {
-    background-color: rgba(255, 255, 255,.7);
-    border: 1px solid #192440;
-    color: #192440;
 }
