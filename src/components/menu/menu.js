@@ -22,12 +22,12 @@ class Menu extends Component {
                 <FontAwesome.FaKey /> Parki
               </li>
             </Link>
-            <Link to="/home">
+            <Link to="/">
               <li>
                 <FontAwesome.FaHome /> Restauracje
               </li>
             </Link>
-            <Link to="/home">
+            <Link to="/">
               <li>
                 <FontAwesome.FaBarChart /> Kawiarnie
               </li>
@@ -49,7 +49,6 @@ class Menu extends Component {
             </Link>
             <Link to="/category">
               <li>
-                {" "}
                 <FontAwesome.FaBars /> Imprezy
               </li>
             </Link>
