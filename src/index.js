@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './index.css';
 import App from './App';
-import Results from "./routes/results/results.js";
-import User from "./routes/user/user.js";
-import Favourite from "./routes/fav/fav.js";
+import Results from "./routes/results/results";
+import User from "./routes/user/user";
+import Favourite from "./routes/fav/fav";
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(

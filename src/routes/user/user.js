@@ -1,7 +1,7 @@
 import React, { PureComponent, Fragment } from 'react';
-import Header from '../../components/header/header.js';
+import Header from '../../components/header/header';
 import MapContainer from '../../components/section/MapContainer';
-import Menu from "../../components/menu/menu.js";
+import Menu from "../../components/menu/menu";
 
 class User extends PureComponent {
     render() {
