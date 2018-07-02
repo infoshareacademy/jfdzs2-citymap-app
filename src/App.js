@@ -30,7 +30,8 @@ class App extends Component {
         <MapContainer google={this.props.google} />
         <Header />
         <div className="search-wrapper">
-          <input
+          <Menu />
+          {/* <input
             type="text"
             className="form-control"
             placeholder="Wpisz szukane miejsce"
@@ -44,7 +45,7 @@ class App extends Component {
             <li>
               <Link to="CurrentPosition">Udostępnij swoją loaklizację</Link>
             </li>
-          </ul>
+          </ul> */}
         </div>
         {/*<Menu />*/}
       </div>

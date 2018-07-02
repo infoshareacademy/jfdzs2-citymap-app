@@ -15,6 +15,11 @@ class Menu extends Component {
             className="form-control"
             placeholder="Wpisz szukane miejsce..."
           />
+          <li>
+            {" "}
+            <Link to="CurrentPosition">Udostępnij swoją loaklizację</Link>
+          </li>
+
           <h4>lub wybierz kategorię: </h4>
           <ul>
             <Link to="/signIn">
