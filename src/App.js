@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import './App.css';
 import MapContainer from './components/section/MapContainer';
-import Header from "./components/header/header";
-import Menu from "./components/menu/menu";
+import Header from "./components/header/header.js";
+import Menu from "./components/menu/menu.js";
 import { Link } from 'react-router-dom';
 import {
     Collapse,

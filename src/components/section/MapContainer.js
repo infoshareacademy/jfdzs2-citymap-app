@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom'
-import {GoogleApiWrapper} from 'google-maps-react'
+import ReactDOM from 'react-dom';
+import {GoogleApiWrapper} from 'google-maps-react';
 
 class MapContainer extends Component {
 
@@ -9,36 +9,36 @@ class MapContainer extends Component {
   }
 
   loadMap() {
+
     if (this.props && this.props.google) { 
       const {google} = this.props; 
-      const maps = google.maps; 
+      const maps = google.maps;
 
-      const mapRef = this.refs.map; 
+      const mapRef = this.mapRef ;
       const node = ReactDOM.findDOMNode(mapRef); 
 
       const mapConfig = Object.assign({}, {
         center:{lat:53.4285, lng:14.5528  }, 
         zoom: 13,
         mapTypeId: 'roadmap' 
-      })
+      });
 
-      this.map = new maps.Map(node, mapConfig); 
-
+      this.mapRef = new maps.Map(node, mapConfig);
     }
   }
-  componentDidMount() {
 
+  componentDidMount() {
     this.loadMap();
-    
     }
+
   render() {
     const style = { 
       width: '100%', 
       height: '100vh' 
-    }
+    };
     
-    return ( 
-      <div ref="map" style={style}>
+    return (
+        <div ref={ el => this.mapRef = el } style={style}>
         loading map...
       </div>
     )
