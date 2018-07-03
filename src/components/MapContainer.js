@@ -8,17 +8,28 @@ const style = {
 };
 
 class MapContainer extends Component {
-  componentDidUpdate() {
-    this.loadMap();
+  constructor() {
+    super();
+    this.state = {
+      userPosition: null
+    };
   }
 
   componentWillReceiveProps(nextProps) {
     const { userPosition } = nextProps;
 
-    console.log("Map Container: ", userPosition);
+    this.setState(
+      {
+        userPosition
+      },
+      () => {
+        this.loadMap();
+      }
+    );
   }
 
   loadMap() {
+    const { userPosition } = this.props;
     if (this.props && this.props.google) {
       const { google } = this.props;
       const maps = google.maps;
@@ -26,16 +37,25 @@ class MapContainer extends Component {
       const mapRef = this.refs.map;
       const node = ReactDOM.findDOMNode(mapRef);
 
-      const mapConfig = Object.assign(
+      let mapConfig = Object.assign(
         {},
         {
-          center: { lat: 53.4285, lng: 14.5528 },
+          center: userPosition ? userPosition : { lat: 53.4285, lng: 14.5528 },
           zoom: 13,
           mapTypeId: "roadmap"
         }
       );
 
+      let mapNode = new maps.Map(mapRef, ...mapConfig);
+
       this.map = new maps.Map(node, mapConfig);
+      if (userPosition) {
+        let marker = new maps.Marker({
+          position: userPosition,
+          map: this.map,
+          title: "nice"
+        });
+      }
     }
   }
 
