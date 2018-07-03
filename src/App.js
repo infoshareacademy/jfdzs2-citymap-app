@@ -24,13 +24,30 @@ import {
 } from "reactstrap";
 
 class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      curPos: null
+    };
+  }
+
+  _onCurrentPositionChange = pos => {
+    this.setState({
+      curPos: pos
+    });
+  };
+
   render() {
     return (
       <div className="App">
-        <MapContainer google={this.props.google} />
+        <MapContainer
+          google={this.props.google}
+          userPosition={this.state.curPos}
+        />
         <Header />
         <div className="search-wrapper">
-          <Menu />
+          <Menu onCurrentPositionChange={this._onCurrentPositionChange} />
           {/* <input
             type="text"
             className="form-control"

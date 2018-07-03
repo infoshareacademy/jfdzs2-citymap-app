@@ -5,6 +5,17 @@ import "./menu.css";
 import * as FontAwesome from "react-icons/lib/fa";
 
 class Menu extends Component {
+  _onFindLocationClick = () => {
+    navigator.geolocation.getCurrentPosition(position => {
+      const curPos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+
+      this.props.onCurrentPositionChange(curPos);
+    });
+  };
+
   render() {
     return (
       <div className="app-menu">
@@ -17,7 +28,9 @@ class Menu extends Component {
           />
           <li>
             {" "}
-            <Link to="CurrentPosition">Udostępnij swoją loaklizację</Link>
+            <div onClick={this._onFindLocationClick}>
+              Udostępnij swoją loaklizację
+            </div>
           </li>
 
           <h4>lub wybierz kategorię: </h4>
