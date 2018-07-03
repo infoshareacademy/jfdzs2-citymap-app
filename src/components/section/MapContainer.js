@@ -1,50 +1,105 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+import PropTypes from 'prop-types';
+import {GoogleApiWrapper} from 'google-maps-react';
 
-class MapContainer extends Component {
-
-  componentDidUpdate() {
-    this.loadMap(); 
-  }
-
-  loadMap() {
-
-    if (this.props && this.props.google) { 
-      const {google} = this.props; 
-      const maps = google.maps;
-
-      const mapRef = this.mapRef ;
-      const node = ReactDOM.findDOMNode(mapRef); 
-
-      const mapConfig = Object.assign({}, {
-        center:{lat:53.4285, lng:14.5528  }, 
-        zoom: 13,
-        mapTypeId: 'roadmap' 
-      });
-
-      this.mapRef = new maps.Map(node, mapConfig);
-    }
-  }
-
-  componentDidMount() {
-    this.loadMap();
+class Map extends Component {
+    constructor(props) {
+        super(props);
+        const {lat, lng} = this.props.initialCenter;
+        this.state = {
+            currentLocation: {
+                lat: lat,
+                lng: lng
+            }
+        }
     }
 
-  render() {
-    const style = { 
-      width: '100%', 
-      height: '100vh' 
-    };
-    
-    return (
-        <div ref={ el => this.mapRef = el } style={style}>
-        loading map...
-      </div>
-    )
-  }
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.google !== this.props.google) {
+            this.loadMap();
+        }
+        if (prevState.currentLocation !== this.state.currentLocation) {
+            this.recenterMap();
+        }
+    }
+
+    loadMap() {
+        if (this.props && this.props.google) {
+            // google is available
+            const {google} = this.props;
+            const maps = google.maps;
+
+            const mapRef = this.mapRef;
+            const node = ReactDOM.findDOMNode(mapRef);
+
+            let {initialCenter, zoom} = this.props;
+            const {lat, lng} = initialCenter;
+            const center = new maps.LatLng(lat, lng);
+            const mapConfig = Object.assign({}, {
+                center: center,
+                zoom: zoom
+            });
+            this.map = new maps.Map(node, mapConfig);
+        }
+        // ...
+    }
+    recenterMap() {
+        const map = this.map;
+        const curr = this.state.currentLocation;
+
+        const google = this.props.google;
+        const maps = google.maps;
+
+        if (map) {
+            let center = new maps.LatLng(curr.lat, curr.lng);
+            map.panTo(center)
+        }
+    }
+    componentDidMount() {
+        if (this.props.centerAroundCurrentLocation) {
+            if (navigator && navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition((pos) => {
+                    const coords = pos.coords;
+                    this.setState({
+                        currentLocation: {
+                            lat: coords.latitude,
+                            lng: coords.longitude
+                        }
+                    })
+                })
+            }
+        }
+        this.loadMap();
+    }
+    render() {
+        const style = {
+            width: '100%',
+            height: '100vh'
+        };
+
+        return (
+            <div ref={ el => this.mapRef = el } style={style}>
+                loading map...
+            </div>
+        )
+    }
 }
+Map.propTypes = {
+    google: PropTypes.object,
+    zoom: PropTypes.number,
+    initialCenter: PropTypes.object,
+    centerAroundCurrentLocation: PropTypes.bool
+};
+Map.defaultProps = {
+    zoom: 13,
+    // Szczecin, by default
+    initialCenter: {
+        lat: 53.4285,
+        lng: 14.5528
+    },centerAroundCurrentLocation: false
+};
 
 export default GoogleApiWrapper({
     apiKey: 'AIzaSyAU6LPIRtQj-VhbJM3X8C6BEGyXTTlffHE',
-})(MapContainer)
+})(Map)
