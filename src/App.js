@@ -1,12 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
-import { GoogleApiWrapper } from "google-maps-react";
-import MapContainer from "./components/MapContainer";
+import MapContainer from "./components/section/MapContainer";
 import Header from "./components/header/header";
-import { Link } from "react-router-dom";
-
-// import Section from "./components/section/section"
-import Footer from "./components/footer/footer";
 import Menu from "./components/menu/menu";
 import {
   Collapse,
@@ -26,7 +21,6 @@ import {
 class App extends Component {
   constructor() {
     super();
-
     this.state = {
       curPos: null
     };
@@ -48,23 +42,7 @@ class App extends Component {
         <Header />
         <div className="search-wrapper">
           <Menu onCurrentPositionChange={this._onCurrentPositionChange} />
-          {/* <input
-            type="text"
-            className="form-control"
-            placeholder="Wpisz szukane miejsce"
-          />
-          lub wybierz kategorię:
-          <ul>
-            <li>Parki</li>
-            <li>Restauracje</li>
-            <li>Kina</li>
-            <li>Wystawy</li>
-            <li>
-              <Link to="CurrentPosition">Udostępnij swoją loaklizację</Link>
-            </li>
-          </ul> */}
         </div>
-        {/*<Menu />*/}
       </div>
     );
   }

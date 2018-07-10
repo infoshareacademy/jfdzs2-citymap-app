@@ -11,20 +11,7 @@
 .navbar, .navbar-expand-sm {
     border-bottom: 1px solid #192440;
     padding: 0;
-;
 }
-.btn-log {
-    margin-top: 115px;
-    margin-left: 20px;
-    width: 100%;
-    background: #192440;
-    border-radius: 21px;
-    color: #9CFFFC;
-    font-size: 21px;
-    font-family: 'Myriad Pro', sans-serif;
-    font-weight: 500;
-}
-
 .brand img{
     height: 30px;
     width: auto;

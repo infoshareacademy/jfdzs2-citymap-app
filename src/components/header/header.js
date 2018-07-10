@@ -16,9 +16,6 @@ class Header extends Component {
                     alt="Panorama sześciu budynków, które są ikonami Szczecina"
                     className="silhouette-city-view"
                 />
-                {/* <div className="col-sm-2">
-                        <Link to="./"><button type="button" className="btn btn-default btn-log">Zaloguj</button></Link>
-                    </div> */}
             </nav>
         )
     }

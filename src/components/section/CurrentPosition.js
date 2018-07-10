@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from "react";
-import MapContainer from "./MapContainer";
-import Header from "./header/header";
+import Header from "../header/header";
 import Geolocation from "./CurrentPositionContainer";
 
 class CurrentPosition extends Component {
@@ -8,7 +7,6 @@ class CurrentPosition extends Component {
     return (
       <Fragment>
         <Header />
-
         <Geolocation />
       </Fragment>
     );
