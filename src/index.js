@@ -6,6 +6,7 @@ import App from "./App";
 import Results from "./routes/results/results";
 import User from "./routes/user/user";
 import Favourite from "./routes/fav/fav";
+import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
   <BrowserRouter>
@@ -16,5 +17,5 @@ ReactDOM.render(
       <Route path="/user" component={User} />
     </Switch>
   </BrowserRouter>,
-  document.getElementById("root")
-);
+  document.getElementById("root"));
+registerServiceWorker();
