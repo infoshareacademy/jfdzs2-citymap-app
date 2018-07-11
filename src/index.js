@@ -7,7 +7,9 @@ import registerServiceWorker from "./registerServiceWorker";
 import Results from "./routes/results/results";
 import User from "./routes/user/user";
 import Favourite from "./routes/fav/fav";
-import Login from "./Login/Login";
+import Login from "./login/Login";
+import SignUp from "./signup/SignUp";
+import LoginPage from "./routes/loginpage/LoginPage";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -17,6 +19,8 @@ ReactDOM.render(
       <Route path="/results" component={Results} />
       <Route path="/user" component={User} />
       <Route path="/login" exact component={Login} />
+      <Route path="/signup" exact component={SignUp} />
+      <Route path="/loginpage" exact component={LoginPage} />
     </Switch>
   </BrowserRouter>,
   document.getElementById("root")

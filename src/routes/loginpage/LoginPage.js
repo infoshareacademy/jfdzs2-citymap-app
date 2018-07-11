@@ -11,7 +11,7 @@ class User extends PureComponent {
       <Fragment>
         <Header />
         <Menu />
-        <SignUp />
+        <Login />
       </Fragment>
     );
   }
