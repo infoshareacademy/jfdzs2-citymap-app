@@ -7,6 +7,7 @@ import CurrentPosition from "./components/CurrentPosition";
 import Results from "./routes/results/results";
 import User from "./routes/user/user";
 import Favourite from "./routes/fav/fav";
+import Login from "./Login/Login";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -16,6 +17,7 @@ ReactDOM.render(
       <Route path="/fav" component={Favourite} />
       <Route path="/results" component={Results} />
       <Route path="/user" component={User} />
+      <Route path="/login" exact component={Login} />
     </Switch>
   </BrowserRouter>,
   document.getElementById("root")

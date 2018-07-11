@@ -7,6 +7,7 @@
     "google-maps-react": "^2.0.2",
     "mdbreact": "^4.5.1",
     "react": "^16.4.1",
+    "react-bootstrap": "^0.32.1",
     "react-dom": "^16.4.1",
     "react-geolocation": "^1.0.3",
     "react-icons": "^2.2.7",
