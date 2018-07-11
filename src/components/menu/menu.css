@@ -1,6 +1,6 @@
 .search-wrapper {
   position: absolute;
-  top: 100px;
+  top: 45px;
   left: 20px;
   width: 250px;
   text-align: center;
@@ -19,7 +19,7 @@
   font-size: 18px;
   color: #192440;
   font-weight: bold;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .search-wrapper ul {
   list-style: none;
