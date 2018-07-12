@@ -32,8 +32,7 @@ class MapContainer extends Component {
         if (this.props && this.props.google) {
             const {google} = this.props;
             const maps = google.maps;
-            const mapRef = this.refs.map;
-            const node = ReactDOM.findDOMNode(mapRef);
+            const mapRef = this.mapRef;
 
             let mapConfig = Object.assign(
                 {},
@@ -44,7 +43,7 @@ class MapContainer extends Component {
                 }
             );
 
-            this.map = new maps.Map(node, mapConfig);
+            this.map = new maps.Map(mapRef, mapConfig);
             if (userPosition) {
                 let marker = new maps.Marker({
                     position: userPosition,
@@ -61,7 +60,7 @@ class MapContainer extends Component {
 
     render() {
         return (
-            <div ref="map" style={style}>
+            <div ref={ el => this.mapRef = el } style={style}>
                 loading map...
             </div>
         );

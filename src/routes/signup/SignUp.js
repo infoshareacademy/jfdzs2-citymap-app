@@ -1,20 +1,21 @@
 import React, { PureComponent } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-import firebase from "../config/firebase";
-import "./Login.css";
+import firebase from "../../config/firebase";
+import "./SignUp.css";
+import { Link } from "react-router-dom";
 
-export default class Login extends PureComponent {
+export default class SignUp extends PureComponent {
   constructor(props) {
     super(props);
 
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSignUp = this.handleSignUp.bind(this);
+
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      errorMessage: ""
     };
-  }
-
-  validateForm() {
-    return this.state.email.length > 0 && this.state.password.length > 0;
   }
 
   handleChange = event => {
@@ -23,29 +24,30 @@ export default class Login extends PureComponent {
     });
   };
 
-  handleSubmit = event => {
+  handleSignUp = event => {
     event.preventDefault();
+    this.setState({ errorMessage: "" });
+
     firebase
       .auth()
-      .signInWithEmailAndPassword(this.state.email, this.state.password)
-      .then(u => {})
-      .then(u => {
-        window.location = "/";
-      })
+      .createUserWithEmailAndPassword(this.state.email, this.state.password)
       .catch(error => {
-        console.log(error);
+        this.setState({ errorMessage: error.message });
       });
   };
 
   render() {
+    const { errorMessage } = this.state;
     return (
       <div className="Login">
         <form onSubmit={this.handleSubmit}>
+          {errorMessage && <div>{errorMessage}</div>}
           <FormGroup controlId="email" bsSize="large">
-            <ControlLabel>Email</ControlLabel>
+            <ControlLabel>Zarejestruj się</ControlLabel>
+
             <FormControl
               autoFocus
-              type="email"
+              type="text"
               placeholder="Podaj adres email"
               value={this.state.email}
               onChange={this.handleChange}
@@ -61,13 +63,18 @@ export default class Login extends PureComponent {
             />
           </FormGroup>
           <Button
+            onClick={this.handleSignUp}
             block
             bsSize="large"
-            disabled={!this.validateForm()}
             type="submit"
           >
-            Enjoy!
+            Zarejestruj się
           </Button>
+          <Link to="/loginpage">
+            <Button block bsSize="large" type="submit">
+              Mam już konto
+            </Button>
+          </Link>
         </form>
       </div>
     );

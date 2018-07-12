@@ -7,8 +7,8 @@ import registerServiceWorker from "./registerServiceWorker";
 import Results from "./routes/results/results";
 import User from "./routes/user/user";
 import Favourite from "./routes/fav/fav";
-import Login from "./login/Login";
-import SignUp from "./signup/SignUp";
+import Login from "./routes/Login/Login";
+import SignUp from "./routes/signup/SignUp";
 import LoginPage from "./routes/loginpage/LoginPage";
 
 ReactDOM.render(
