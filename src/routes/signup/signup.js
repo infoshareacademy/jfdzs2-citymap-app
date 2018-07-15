@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-import firebase from "../../config/firebase";
+import fireinit from "../../config/firebase";
 import "./signup.css";
 import { Link } from "react-router-dom";
 
@@ -28,7 +28,7 @@ export default class SignUp extends PureComponent {
         event.preventDefault();
         this.setState({ errorMessage: "" });
 
-        firebase
+        fireinit
             .auth()
             .createUserWithEmailAndPassword(this.state.email, this.state.password)
             .catch(error => {

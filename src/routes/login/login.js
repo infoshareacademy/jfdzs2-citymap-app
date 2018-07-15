@@ -1,6 +1,6 @@
 import React, {PureComponent} from "react";
 import {Button, FormGroup, FormControl, ControlLabel} from "react-bootstrap";
-import firebase from "../../config/firebase";
+import fireinit from "../../config/firebase";
 import "./login.css";
 
 export default class Login extends PureComponent {
@@ -25,7 +25,7 @@ export default class Login extends PureComponent {
 
     handleSubmit = event => {
         event.preventDefault();
-        firebase
+        fireinit
             .auth()
             .signInWithEmailAndPassword(this.state.email, this.state.password)
             .then(u => {
