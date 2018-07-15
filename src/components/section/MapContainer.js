@@ -3,7 +3,7 @@ import React, { Component } from "react";
 
 const style = {
     width: "100%",
-    height: "100vh"
+    height: "100vh",
 };
 
 class MapContainer extends Component {
@@ -92,7 +92,7 @@ class MapContainer extends Component {
                 }
             })
         }
-        this.infoWindow.setContent(`${marker.name}<button id="add-fav-btn">add fav</button>`);
+        this.infoWindow.setContent(`${marker.name}<button id="add-fav-btn">Zapisz do ulubionych!</button>`);
         this.infoWindow.open(this.map, marker);
     }
 

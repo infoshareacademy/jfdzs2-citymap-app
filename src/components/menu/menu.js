@@ -31,23 +31,19 @@ class Menu extends Component {
                         Udostępnij swoją loaklizację
                     </button>
                     <h4>lub wybierz kategorię: </h4>
-                    <ul>
-                        <li>
                             <button
                                 type="button"
-                                className="btn btn-default btn-log"
+                                className="btn btn-default btn-category"
                                 onClick={(e) => {
                                     e.preventDefault();
                                     this.props.onCategoryChange('park');
                                 }}
                             >
-                                Restsauracje
+                                Restauracje
                             </button>
-                        </li>
-                        <li>
                             <button
                                 type="button"
-                                className="btn btn-default btn-log"
+                                className="btn btn-default btn-category"
                                 onClick={(e) => {
                                     e.preventDefault();
                                     this.props.onCategoryChange('restaurant');
@@ -55,11 +51,9 @@ class Menu extends Component {
                             >
                                 Parki
                             </button>
-                        </li>
-                        <li>
                             <button
                                 type="button"
-                                className="btn btn-default btn-log"
+                                className="btn btn-default btn-category"
                                 onClick={(e) => {
                                     e.preventDefault();
                                     this.props.onCategoryChange('cafe');
@@ -67,11 +61,9 @@ class Menu extends Component {
                             >
                                 Kawiarnie
                             </button>
-                        </li>
-                        <li>
                             <button
                                 type="button"
-                                className="btn btn-default btn-log"
+                                className="btn btn-default btn-category"
                                 onClick={(e) => {
                                     e.preventDefault();
                                     this.props.onCategoryChange('movie-theater');
@@ -79,23 +71,19 @@ class Menu extends Component {
                             >
                                 Kina
                             </button>
-                        </li>
-                        <li>
                             <button
                                 type="button"
-                                className="btn btn-default btn-log"
+                                className="btn btn-default btn-category"
                                 onClick={(e) => {
                                     e.preventDefault();
-                                    this.props.onCategoryChange('stadium');
+                                    this.props.onCategoryChange('gym');
                                 }}
                             >
                                 Obiekty sportowe
                             </button>
-                        </li>
-                        <li>
                             <button
                                 type="button"
-                                className="btn btn-default btn-log"
+                                className="btn btn-default btn-category"
                                 onClick={(e) => {
                                     e.preventDefault();
                                     this.props.onCategoryChange('night-club');
@@ -103,9 +91,6 @@ class Menu extends Component {
                             >
                                 Imprezy
                             </button>
-                        </li>
-                    </ul>
-                    <ul>
                         <Link to="./fav">
                             <button type="button" className="btn btn-default btn-log">Zapisane
                                 miejsca
@@ -119,7 +104,6 @@ class Menu extends Component {
                             <button type="button" className="btn btn-default btn-log">Zaloguj
                             </button>
                         </Link>
-                    </ul>
                 </div>
             </div>
         );
