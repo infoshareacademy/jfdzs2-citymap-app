@@ -1,5 +1,6 @@
 /* global google */
 import React, { Component } from "react";
+import "./MapContainer.css";
 
 const style = {
     width: "100%",
@@ -10,7 +11,9 @@ class MapContainer extends Component {
     constructor() {
         super();
         this.state = {
-            userPosition: null
+            userPosition: null,
+            favList:[],
+            currentMarker: null,
         };
         this.mapRef = React.createRef();
         this.initMap = this.initMap.bind(this);
@@ -61,6 +64,8 @@ class MapContainer extends Component {
             );
         }
     }
+
+
     initMap() {
         const { userPosition } = this.props;
         let mapConfig = {
@@ -78,10 +83,17 @@ class MapContainer extends Component {
         marker.name = place.name;
         google.maps.event.addListener(marker, "click", () => {
             this.setInfoWindow(marker);
+            this.setState({currentMarker:marker})
         });
 
         return marker;
     }
+
+    addToFavList = () => {
+        this.setState({
+            favList:[...this.state.favList, this.state.currentMarker.name],
+        })
+    };
 
     setInfoWindow(marker) {
         if(!this.infoWindow) {
@@ -92,14 +104,26 @@ class MapContainer extends Component {
                 }
             })
         }
-        this.infoWindow.setContent(`${marker.name}<button id="add-fav-btn">Zapisz do ulubionych!</button>`);
+        this.infoWindow.setContent(`${marker.name}`);
         this.infoWindow.open(this.map, marker);
+
+    }
+
+    componentDidUpdate() {
+        console.log('map container', this.state.favList)
     }
 
     render() {
         return (
+            <div>
             <div ref={this.mapRef} style={style}>
                 loading map...
+            </div>
+                <div className="fav-list">
+                {this.state.currentMarker && <div className="fav-list-add">Dodaj do ulubionych<button className="btn-log" onClick={this.addToFavList}>Dodaj</button></div>}
+                <div className="fav-list-all">Ulubione miejsca:</div>
+                <div>{this.state.favList.map((item) => <div>{item}</div>)}</div>
+                </div>
             </div>
         );
     }
