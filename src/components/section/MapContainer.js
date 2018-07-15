@@ -1,6 +1,5 @@
-import React, {Component} from "react";
-import ReactDOM from "react-dom";
-import {GoogleApiWrapper} from "google-maps-react";
+/* global google */
+import React, { Component } from "react";
 
 const style = {
     width: "100%",
@@ -13,93 +12,97 @@ class MapContainer extends Component {
         this.state = {
             userPosition: null
         };
+        this.mapRef = React.createRef();
+        this.initMap = this.initMap.bind(this);
+        window.initMap = this.initMap;
+        this.markers = [];
     }
 
+    componentDidMount() {
+        const apiKey = 'AIzaSyAU6LPIRtQj-VhbJM3X8C6BEGyXTTlffHE';
+        const src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&callback=initMap`;
+        const script = document.createElement('script');
+        script.src = src;
+        document.body.appendChild(script);
+    }
     componentWillReceiveProps(nextProps) {
-        const {userPosition} = nextProps;
-        this.setState(
-            {
-                userPosition
-            },
-            () => {
-                this.loadMap();
+        if (nextProps.userPosition) {
+            if (this.userMarker) {
+                this.userMarker.setPosition(nextProps.userPosition);
+            } else {
+                this.userMarker = new google.maps.Marker({
+                    position: nextProps.userPosition,
+                    map: this.map,
+                })
             }
-        );
-    }
-    createMarker(place) {
-        if (this.props && this.props.google) {
-            const {google} = this.props;
-            const maps = google.maps;
-            let placeLoc = place.geometry.location;
-            let marker = new maps.Marker({
-                map: this.map,
-                position: place.geometry.location
-            });
-            google.maps.event.addListener(marker, "click", () => {
-                this.infowindow.setContent(place.name);
-                this.infowindow.open(this.map, marker);
-            });
         }
-    }
-
-    loadMap() {
-        const {userPosition} = this.props;
-        if (this.props && this.props.google) {
-            const {google} = this.props;
-            const maps = google.maps;
-            const mapRef = this.refs.map;
-            const node = ReactDOM.findDOMNode(mapRef);
-
-            this.infowindow = new maps.Map.InfoWindow();
-            let service = new maps.places.PlacesService(this.map);
+        if (nextProps.category && this.props.category !== nextProps.category) {
+            if (this.markers.length) {
+                this.markers.forEach((marker) => {
+                    marker.setMap(null);
+                });
+                this.markers = [];
+            }
+            let service = new google.maps.places.PlacesService(this.map);
             service.nearbySearch(
                 {
-                    position: userPosition,
-                    radius: 200000,
-                    type: ["restaurant"]
+                    location: nextProps.userPosition,
+                    radius: '5000',
+                    type: [this.props.category]
                 },
                 (results, status) => {
-                    if (status === maps.places.PlacesServiceStatus.OK) {
+                    if (status === google.maps.places.PlacesServiceStatus.OK) {
                         for (let i = 0; i < results.length; i++) {
-                            this.createMarker(results[i]);
+                            const marker = this.createMarker(results[i]);
+                            this.markers.push(marker);
                         }
                     }
                 }
             );
-
-            let mapConfig = Object.assign(
-                {},
-                {
-                    center: userPosition ? userPosition : {lat: 53.4285, lng: 14.5528},
-                    zoom: 13,
-                    mapTypeId: "roadmap"
-                }
-            );
-
-            this.map = new maps.Map(node, mapConfig);
-            if (userPosition) {
-                let marker = new maps.Marker({
-                    position: userPosition,
-                    map: this.map,
-                    title: "nice"
-                });
-            }
         }
     }
+    initMap() {
+        const { userPosition } = this.props;
+        let mapConfig = {
+            center: userPosition ? userPosition : { lat: 53.4285, lng: 14.5528 },
+            zoom: 13,
+        };
+        this.map = new google.maps.Map(this.mapRef.current, mapConfig);
+    }
 
-    componentDidMount() {
-        this.loadMap();
+    createMarker(place) {
+        let marker = new google.maps.Marker({
+            map: this.map,
+            position: place.geometry.location
+        });
+        marker.name = place.name;
+        google.maps.event.addListener(marker, "click", () => {
+            this.setInfoWindow(marker);
+        });
+
+        return marker;
+    }
+
+    setInfoWindow(marker) {
+        if(!this.infoWindow) {
+            this.infoWindow  = new google.maps.InfoWindow();
+            document.addEventListener('click', (e) => {
+                if(e.target.id === 'add-fav-btn') {
+                    alert('dodano do ulubionych');
+                }
+            })
+        }
+        this.infoWindow.setContent(`${marker.name}<button id="add-fav-btn">add fav</button>`);
+        this.infoWindow.open(this.map, marker);
     }
 
     render() {
         return (
-            <div ref="map" style={style}>
+            <div ref={this.mapRef} style={style}>
                 loading map...
             </div>
         );
     }
 }
 
-export default GoogleApiWrapper({
-    apiKey: "AIzaSyAU6LPIRtQj-VhbJM3X8C6BEGyXTTlffHE"
-})(MapContainer);
+export default MapContainer;

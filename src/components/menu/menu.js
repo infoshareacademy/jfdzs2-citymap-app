@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import "./menu.css";
 
 class Menu extends Component {
-    _onFindLocationClick = () => {
+    onFindLocationClick = () => {
         navigator.geolocation.getCurrentPosition(position => {
             const curPos = {
                 lat: position.coords.latitude,
@@ -23,18 +23,87 @@ class Menu extends Component {
                         className="form-control"
                         placeholder="Wpisz szukane miejsce..."
                     />
-                    <button type="button" className="btn btn-default btn-log"
-                            onClick={this._onFindLocationClick}>Udostępnij swoją loaklizację
+                    <button
+                        type="button"
+                        className="btn btn-default btn-log"
+                        onClick={this.onFindLocationClick}
+                    >
+                        Udostępnij swoją loaklizację
                     </button>
                     <h4>lub wybierz kategorię: </h4>
                     <ul>
-                        <li>Parki</li>
-                        <li>Restauracje</li>
-                        <li>Kawiarnie</li>
-                        <li>Kina</li>
-                        <li>Wystawy</li>
-                        <li>Obiekty sportowe</li>
-                        <li>Imprezy</li>
+                        <li>
+                            <button
+                                type="button"
+                                className="btn btn-default btn-log"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    this.props.onCategoryChange('park');
+                                }}
+                            >
+                                Restsauracje
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                className="btn btn-default btn-log"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    this.props.onCategoryChange('restaurant');
+                                }}
+                            >
+                                Parki
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                className="btn btn-default btn-log"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    this.props.onCategoryChange('cafe');
+                                }}
+                            >
+                                Kawiarnie
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                className="btn btn-default btn-log"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    this.props.onCategoryChange('movie-theater');
+                                }}
+                            >
+                                Kina
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                className="btn btn-default btn-log"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    this.props.onCategoryChange('stadium');
+                                }}
+                            >
+                                Obiekty sportowe
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                className="btn btn-default btn-log"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    this.props.onCategoryChange('night-club');
+                                }}
+                            >
+                                Imprezy
+                            </button>
+                        </li>
                     </ul>
                     <ul>
                         <Link to="./fav">
