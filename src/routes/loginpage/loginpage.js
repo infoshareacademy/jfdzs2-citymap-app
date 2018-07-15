@@ -1,20 +1,19 @@
-import React, {PureComponent, Fragment} from "react";
+import React, { PureComponent, Fragment } from "react";
 import Header from "../../components/header/header";
 import Menu from "../../components/menu/menu";
 import Login from "../login/login";
 import SignUp from "../signup/signup";
 
-class User extends PureComponent {
+class LoginPage extends PureComponent {
     render() {
         return (
             <Fragment>
-                <Header/>
-                <Menu/>
+                <Header />
+                <Menu />
                 <Login/>
                 <SignUp/>
             </Fragment>
         );
     }
 }
-
-export default User;
+export default LoginPage;
