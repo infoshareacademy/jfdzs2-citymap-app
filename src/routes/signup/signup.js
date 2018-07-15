@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import fireinit from "../../config/firebase";
+import './bootstrap.min.css';
 import "./signup.css";
 import { Link } from "react-router-dom";
 
