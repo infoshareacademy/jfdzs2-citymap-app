@@ -1,0 +1,43 @@
+.fav-list {
+    position: absolute;
+    top: 120px;
+    right: 60px;
+    width: 250px;
+    text-align: center;
+    background: rgba(255, 255, 255, .7);
+    margin: 7px 0;
+}
+.fav-list-add {
+    font-size: 18px;
+    color: #192440;
+    font-weight: bold;
+    border: 1px solid #192440;
+    min-height: auto;
+    margin: 7px;
+}
+.fav-list-all {
+    font-size: 18px;
+    color: #192440;
+    font-weight: bold;
+    border: 1px solid #192440;
+    min-height: auto;
+    margin: 7px;
+}
+.btn-log {
+    width: 100%;
+    background: #192440;
+    display: inline-block;
+    color: white;
+    font-size: 18px;
+    font-weight: lighter;
+    margin: 5px;
+    padding: 7px;
+    border: 1px solid #192440;
+    border-radius: 0;
+}
+
+.btn-log:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid #192440;
+    color: #192440;
+}

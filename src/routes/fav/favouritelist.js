@@ -1,20 +1,20 @@
 import React, { PureComponent, Fragment } from "react";
-import { Link } from 'react-router-dom';
 
 class FavouriteList extends PureComponent {
+    componentDidMount() {
+        console.log(this.props);
+    }
+
     renderFavList = () =>
-        this.props.favList.map((item, index) =>
-            <div key={index}>{index+1}
-                <Link to={"/users/"+item}>
-                    {item}
-                </Link>
+        this.props.favList.map((item) =>
+            <div key={item.id}>{item+1}
             </div>
         );
 
     render(){
         return (
             <div className="App-list">
-                <h4 className="App-favlist">Lista użytkowników: </h4>
+                <h4 className="App-favlist">Lista miejsc: </h4>
                 <div className="App-lisfOfFav">
                     <ul>
                         {this.renderFavList()}

@@ -24,7 +24,6 @@ class App extends Component {
       this.state = {
           userPosition: null,
           category: null,
-          favList: [],
     };
   }
 
@@ -33,16 +32,6 @@ class App extends Component {
           userPosition,
       });
   };
-
-    // addToFavList = () => {
-    //     this.setState({
-    //         favList:[...this.state.favList],
-    //     })
-    // };
-
-    componentDidUpdate() {
-        console.log(this.state.favList)
-    }
 
   render() {
     return (
