@@ -21,27 +21,34 @@ import {
 class App extends Component {
   constructor() {
     super();
-    this.state = {
-      curPos: null
+      this.state = {
+          userPosition: null,
+          category: null,
     };
   }
 
-  _onCurrentPositionChange = pos => {
-    this.setState({
-      curPos: pos
-    });
+  onCurrentPositionChange = userPosition => {
+      this.setState({
+          userPosition,
+      });
   };
 
   render() {
     return (
       <div className="App">
         <MapContainer
-          google={this.props.google}
-          userPosition={this.state.curPos}
+            google={this.props.google}
+            userPosition={this.state.userPosition}
+            category={this.state.category}
         />
         <Header />
         <div className="search-wrapper">
-          <Menu onCurrentPositionChange={this._onCurrentPositionChange} />
+          <Menu onCurrentPositionChange={this.onCurrentPositionChange}
+                onCategoryChange={(category) => {
+                    this.setState({
+                        category,
+                    })
+                }} />
         </div>
       </div>
     );

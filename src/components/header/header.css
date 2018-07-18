@@ -1,19 +1,23 @@
 .silhouette-city-view {
     height: 80px;
-    margin-left: auto;
+    margin-left: 900px;
 }
+
 .navbar {
     position: absolute;
     top: 0;
     width: 100%;
-    background: rgba(255,255,255,.7);
+    background: rgba(255, 255, 255, .7);
 }
+
 .navbar, .navbar-expand-sm {
     border-bottom: 1px solid #192440;
     padding: 0;
 }
-.brand img{
+
+.brand img {
     height: 30px;
     width: auto;
     margin-left: 20px;
+    margin-bottom: 25px;
 }
