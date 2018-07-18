@@ -36,7 +36,7 @@ class Menu extends Component {
                                 className="btn btn-default btn-category"
                                 onClick={(e) => {
                                     e.preventDefault();
-                                    this.props.onCategoryChange('park');
+                                    this.props.onCategoryChange('restaurant');
                                 }}
                             >
                                 Restauracje
@@ -46,7 +46,7 @@ class Menu extends Component {
                                 className="btn btn-default btn-category"
                                 onClick={(e) => {
                                     e.preventDefault();
-                                    this.props.onCategoryChange('restaurant');
+                                    this.props.onCategoryChange('park');
                                 }}
                             >
                                 Parki

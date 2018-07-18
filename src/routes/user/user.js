@@ -8,7 +8,9 @@ class User extends PureComponent {
         return (
             <Fragment>
                 <Header/>
-                <Menu/>
+                <div className="search-wrapper">
+                    <Menu/>
+                </div>
                 <SignUp/>
             </Fragment>
         );

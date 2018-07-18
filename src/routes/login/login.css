@@ -8,4 +8,36 @@
         max-width: 320px;
         margin-top: 100px;
     }
+    .btn-log {
+        width: 100%;
+        background: #192440;
+        display: inline-block;
+        color: white;
+        font-size: 18px;
+        font-weight: lighter;
+        margin: 5px 0;
+        padding: 7px 0;
+        border: 1px solid #192440;
+        border-radius: 0;
+    }
+
+    .btn-log:hover {
+        background-color: rgba(255, 255, 255, 0.7);
+        border: 1px solid #192440;
+        color: #192440;
+    }
+    .label-write {
+        padding-top: 15px;
+        color: #192440;
+        font-size: 30px;
+        font-family: 'Myriad Pro', sans-serif;
+        font-weight: 500;
+        text-align: center;
+        margin: 10px;
+    }
+    .label-placeholder {
+        padding: 5px;
+        margin-top: 7px;
+        width: 250px;
+    }
 }

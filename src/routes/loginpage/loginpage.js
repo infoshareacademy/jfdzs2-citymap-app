@@ -8,7 +8,9 @@ class LoginPage extends PureComponent {
         return (
             <Fragment>
                 <Header />
-                <Menu />
+                <div className="search-wrapper">
+                    <Menu />
+                </div>
                 <Login/>
             </Fragment>
         );

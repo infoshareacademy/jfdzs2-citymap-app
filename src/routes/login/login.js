@@ -42,9 +42,10 @@ export default class Login extends PureComponent {
         return (
             <div className="Login">
                 <form onSubmit={this.handleSubmit}>
-                    <FormGroup controlId="email" bsSize="large">
-                        <ControlLabel>Email</ControlLabel>
+                    <FormGroup className="label-write" controlId="email" bsSize="large">
+                        <ControlLabel>Email: </ControlLabel>
                         <FormControl
+                            className="label-placeholder"
                             autoFocus
                             type="email"
                             placeholder="Podaj adres email"
@@ -52,9 +53,10 @@ export default class Login extends PureComponent {
                             onChange={this.handleChange}
                         />
                     </FormGroup>
-                    <FormGroup controlId="password" bsSize="large">
-                        <ControlLabel>Hasło</ControlLabel>
+                    <FormGroup className="label-write" controlId="password" bsSize="large">
+                        <ControlLabel>Hasło: </ControlLabel>
                         <FormControl
+                            className="label-placeholder"
                             value={this.state.password}
                             onChange={this.handleChange}
                             type="password"
@@ -62,6 +64,7 @@ export default class Login extends PureComponent {
                         />
                     </FormGroup>
                     <Button
+                        className="btn-log"
                         bsSize="large"
                         disabled={!this.validateForm()}
                         type="submit"

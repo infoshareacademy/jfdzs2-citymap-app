@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import fireinit from "../../config/firebase";
-import './bootstrap.min.css';
+// import './bootstrap.min.css';
 import "./signup.css";
 import { Link } from "react-router-dom";
 
@@ -43,10 +43,12 @@ export default class SignUp extends PureComponent {
             <div className="Login">
                 <form onSubmit={this.handleSubmit}>
                     {errorMessage && <div>{errorMessage}</div>}
-                    <FormGroup controlId="email" bsSize="large">
-                        <ControlLabel>Zarejestruj się</ControlLabel>
+                    <FormGroup className="label-write" controlId="email" bsSize="large">
+                        <ControlLabel>Zarejestruj się: </ControlLabel>
+
 
                         <FormControl
+                            className="label-placeholder"
                             autoFocus
                             type="text"
                             placeholder="Podaj adres email"
@@ -54,9 +56,10 @@ export default class SignUp extends PureComponent {
                             onChange={this.handleChange}
                         />
                     </FormGroup>
-                    <FormGroup controlId="password" bsSize="large">
-                        <ControlLabel>Hasło</ControlLabel>
+                    <FormGroup className="label-write" controlId="password" bsSize="large">
+                        <ControlLabel>Hasło: </ControlLabel>
                         <FormControl
+                            className="label-placeholder"
                             value={this.state.password}
                             onChange={this.handleChange}
                             type="password"
@@ -64,6 +67,7 @@ export default class SignUp extends PureComponent {
                         />
                     </FormGroup>
                     <Button
+                        className="btn-log"
                         onClick={this.handleSignUp}
                         block
                         bsSize="large"
@@ -72,7 +76,7 @@ export default class SignUp extends PureComponent {
                         Zarejestruj się
                     </Button>
                     <Link to="/loginpage">
-                        <Button block bsSize="large" type="submit">
+                        <Button block bsSize="large" type="submit" className="btn-log">
                             Mam już konto
                         </Button>
                     </Link>
