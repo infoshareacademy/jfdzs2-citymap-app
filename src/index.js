@@ -7,9 +7,15 @@ import registerServiceWorker from "./registerServiceWorker";
 import Results from "./routes/results/results";
 import User from "./routes/user/user";
 import Favourite from "./routes/fav/fav";
+<<<<<<< HEAD
 import Login from "./routes/login/login";
 import SignUp from "./routes/signup/signup";
 import LoginPage from "./routes/loginpage/loginpage";
+=======
+import Login from "./routes/Login/Login";
+import SignUp from "./routes/signup/SignUp";
+import LoginPage from "./routes/loginpage/LoginPage";
+>>>>>>> 6671d7c74c94b26b460a88d0a325709c19696cf6
 
 ReactDOM.render(
     <BrowserRouter>
