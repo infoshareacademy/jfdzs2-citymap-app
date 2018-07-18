@@ -38,18 +38,6 @@ class MapContainer extends Component {
                     map: this.map,
                 })
             }
-<<<<<<< HEAD
-        }
-        if (nextProps.category && this.props.category !== nextProps.category) {
-            if (this.markers.length) {
-                this.markers.forEach((marker) => {
-                    marker.setMap(null);
-                });
-                this.markers = [];
-            }
-            let service = new google.maps.places.PlacesService(this.map);
-            service.nearbySearch(
-=======
         );
     }
 
@@ -62,7 +50,6 @@ class MapContainer extends Component {
 
             let mapConfig = Object.assign(
                 {},
->>>>>>> 6671d7c74c94b26b460a88d0a325709c19696cf6
                 {
                     location: nextProps.userPosition,
                     radius: '5000',
@@ -80,46 +67,6 @@ class MapContainer extends Component {
         }
     }
 
-<<<<<<< HEAD
-
-    initMap() {
-        const { userPosition } = this.props;
-        let mapConfig = {
-            center: userPosition ? userPosition : { lat: 53.4285, lng: 14.5528 },
-            zoom: 13,
-        };
-        this.map = new google.maps.Map(this.mapRef.current, mapConfig);
-    }
-
-    createMarker(place) {
-        let marker = new google.maps.Marker({
-            map: this.map,
-            position: place.geometry.location
-        });
-        marker.name = place.name;
-        google.maps.event.addListener(marker, "click", () => {
-            this.setInfoWindow(marker);
-            this.setState({currentMarker:marker})
-        });
-
-        return marker;
-    }
-
-    addToFavList = () => {
-        this.setState({
-            favList:[...this.state.favList, this.state.currentMarker.name],
-        })
-    };
-
-    setInfoWindow(marker) {
-        if(!this.infoWindow) {
-            this.infoWindow  = new google.maps.InfoWindow();
-            document.addEventListener('click', (e) => {
-                if(e.target.id === 'add-fav-btn') {
-                    alert('dodano do ulubionych');
-                }
-            })
-=======
             this.map = new maps.Map(mapRef, mapConfig);
             if (userPosition) {
                 let marker = new maps.Marker({
@@ -128,7 +75,6 @@ class MapContainer extends Component {
                     title: "nice"
                 });
             }
->>>>>>> 6671d7c74c94b26b460a88d0a325709c19696cf6
         }
         this.infoWindow.setContent(`${marker.name}`);
         this.infoWindow.open(this.map, marker);
@@ -141,12 +87,7 @@ class MapContainer extends Component {
 
     render() {
         return (
-<<<<<<< HEAD
-            <div>
-            <div ref={this.mapRef} style={style}>
-=======
             <div ref={ el => this.mapRef = el } style={style}>
->>>>>>> 6671d7c74c94b26b460a88d0a325709c19696cf6
                 loading map...
             </div>
                 <div className="fav-list">
