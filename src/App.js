@@ -3,20 +3,6 @@ import "./App.css";
 import MapContainer from "./components/section/MapContainer";
 import Header from "./components/header/header";
 import Menu from "./components/menu/menu";
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  Container,
-  Row,
-  Col,
-  Jumbotron,
-  Button
-} from "reactstrap";
 
 class App extends Component {
   constructor() {

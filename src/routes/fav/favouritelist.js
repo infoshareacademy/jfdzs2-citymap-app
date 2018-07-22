@@ -1,4 +1,4 @@
-import React, { PureComponent, Fragment } from "react";
+import React, { PureComponent } from "react";
 
 class FavouriteList extends PureComponent {
     componentDidMount() {
