@@ -1,17 +1,19 @@
 import React, { PureComponent, Fragment } from "react";
 import Header from "../../components/header/header";
 import Menu from "../../components/menu/menu";
-import FavouriteList from "../fav/favouritelist";
+import Login from "../login/login";
 
-class Favourite extends PureComponent {
+class LoginPage extends PureComponent {
     render() {
         return (
             <Fragment>
                 <Header />
-                <Menu />
-                <FavouriteList/>
+                <div className="search-wrapper">
+                    <Menu />
+                </div>
+                <Login/>
             </Fragment>
         );
     }
 }
-export default Favourite;
+export default LoginPage;
